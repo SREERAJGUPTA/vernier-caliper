@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "rows": 9,
+  "columns": 23,
+  "encoding": "UTF-8 with BOM",
+  "all_four_modes": true,
+  "separate_entered_and_reference_columns": true,
+  "invalid_technique_retained": true
+}

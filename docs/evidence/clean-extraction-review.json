@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "method": "Verified candidate ZIP extracted into a new directory; clean lockfile installation, typecheck, production rebuild and unit regression suite",
+  "commands": [
+    "npm ci --ignore-scripts --no-audit --no-fund",
+    "npm run build",
+    "npm test -- --reporter=json --outputFile=extracted-unit-results.json"
+  ],
+  "tests_passed": 113,
+  "tests_failed": 0,
+  "test_files": 10,
+  "asset_build": "5a982f774c63a0e0",
+  "every_production_file_byte_identical": true,
+  "source_hashes_match_delivery_provenance": true,
+  "note": "Final packaging changes after this check are documentation, evidence and the isolated review Git bundle; application source and production assets stay unchanged."
+}

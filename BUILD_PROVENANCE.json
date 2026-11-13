@@ -1,0 +1,222 @@
+{
+  "project": "Precision Lab",
+  "version": "2.0.0",
+  "method": "Fresh independent implementation from supplied product specification; no recovered application source or previous build reused",
+  "source_branch": "rebuild/precision-lab-v2",
+  "target_repository": "SREERAJGUPTA/vernier-caliper",
+  "pages_base": "/vernier-caliper/",
+  "asset_build": "5a982f774c63a0e0",
+  "master_specification_sha256": "b8fbcb4354f30bb3a948600a4f8204477b1224fc9cf0e5aa9cff9d76b23229c8",
+  "runtime": {
+    "node": "v24.22.1",
+    "npm": "11.9.0"
+  },
+  "remote_repository_mutated": false,
+  "published": false,
+  "source_files": {
+    "src/App.tsx": {
+      "bytes": 45382,
+      "sha256": "2271245edb448374dea804f8c6bbd7334780a9e7ad52384cc6eab34ca27c5101"
+    },
+    "src/components/ContactInspector.tsx": {
+      "bytes": 3154,
+      "sha256": "6d8a27737b54470b07d70ce907bf33ea34d19789ffea037a2aa6b97b2e406cae"
+    },
+    "src/components/FlatInstrument.tsx": {
+      "bytes": 2983,
+      "sha256": "f5264a0e7e38a998b895af222df139a2a561d5f67e7300f72becc46a7f5ed6bc"
+    },
+    "src/components/Icon.tsx": {
+      "bytes": 1421,
+      "sha256": "e897d24a32864ce8ba59bdf43a4e0a99c570822532d437a4b115e39092df491f"
+    },
+    "src/contact/solver.ts": {
+      "bytes": 9933,
+      "sha256": "2fdf54f11b667ffa0095aca83cd0c342bb0212dd02b08cb8f6a259f5fec29b06"
+    },
+    "src/contact/specimens.ts": {
+      "bytes": 3763,
+      "sha256": "1ae96015f078a197ed36e910d8857774909d035595b62e3a9b02386889570f0d"
+    },
+    "src/domain/index.ts": {
+      "bytes": 226,
+      "sha256": "5310d848602b8e937caf46beeccb7a521716140f078d1549dfa38cd6385958e7"
+    },
+    "src/domain/scales.ts": {
+      "bytes": 2657,
+      "sha256": "e2e717deab8d4eda9d16a82bb9ccfaf5d7cb232071309c1990b4c009f07873a7"
+    },
+    "src/domain/scenarios.ts": {
+      "bytes": 944,
+      "sha256": "b1172e4ffc3f4a7e308596793ad7b0f034969db4052021f560215c030c71aa00"
+    },
+    "src/domain/types.ts": {
+      "bytes": 2792,
+      "sha256": "09ebca999d45e979fca72fb883d794a92a103f807074566c885d1387e4c2f667"
+    },
+    "src/domain/verification.ts": {
+      "bytes": 6121,
+      "sha256": "cd982f902ed1aa7763c57aefcbf7f30a52c3a109cc079cd23286cb025ed69bcf"
+    },
+    "src/interaction/context.ts": {
+      "bytes": 880,
+      "sha256": "e6f844a5c44201fa196efd98d7ee4ad63ffe400eb75fd2bdee7267cf60aa884f"
+    },
+    "src/interaction/controller.test.ts": {
+      "bytes": 1693,
+      "sha256": "31c8b0bae75bab63c0021545d12ef3cd29a6d8e9b1512c1a309c60833683aaa6"
+    },
+    "src/interaction/controller.ts": {
+      "bytes": 1059,
+      "sha256": "b860e6a493ad57aa6858e424b07a0c678fff5222fa8d5930fbaf13e7f090a47b"
+    },
+    "src/interaction/latency.test.ts": {
+      "bytes": 2656,
+      "sha256": "b73010448010cc33eec3f532f70ad86d88559c14aab531f889d8089a6fcbd7a7"
+    },
+    "src/interaction/latency.ts": {
+      "bytes": 3656,
+      "sha256": "1782c8d1fc2046757025895d512a2383ee4d90713d0990dd806540dfaceded11"
+    },
+    "src/learning/Anatomy.tsx": {
+      "bytes": 10766,
+      "sha256": "6746ee1a979c2ee9d396633618910f12382b034a093212746bec0bb4a4b0c040"
+    },
+    "src/learning/ConceptQuestion.tsx": {
+      "bytes": 1577,
+      "sha256": "ac33a1c4d76dff84ed2f3d4a4e75ef6bc9bc3fa77538bedb732254271402a40c"
+    },
+    "src/learning/Discover.tsx": {
+      "bytes": 17832,
+      "sha256": "13190cdd418672d16ce288b2a793ecc29f61297effdeba81d11117c40672a95a"
+    },
+    "src/learning/history.ts": {
+      "bytes": 3423,
+      "sha256": "cd5b7fcc82c533064b9ff12af2f5bb29a6135aae191a1aba61afd88bec218e7c"
+    },
+    "src/learning/index.ts": {
+      "bytes": 318,
+      "sha256": "0fc1542abe51ac2ed43dac4f03f8629299d2c4f37e0437a20477dc21d78f1124"
+    },
+    "src/learning/learning.css": {
+      "bytes": 13062,
+      "sha256": "cf9970b8fdbc508cf2bc6121fede8ebc919f9418d3f25927a2103c20495e1843"
+    },
+    "src/learning/tasks.ts": {
+      "bytes": 8165,
+      "sha256": "b398f2a8d9faa5afbcd435b5eba86f84826baf5dbdf2c6c758ac300c614a3fd1"
+    },
+    "src/main.tsx": {
+      "bytes": 159,
+      "sha256": "868ca30c9a91dea8314ef8139c8cde2a4f59e3e6558f8b22ef19c56ffbfcb004"
+    },
+    "src/mechanics/kinematics.ts": {
+      "bytes": 1771,
+      "sha256": "20c5c28ef41b5e48e0b230c05870bf37dd9e1432bd65d446a4550895aa6ed8e3"
+    },
+    "src/platform/audio.ts": {
+      "bytes": 2511,
+      "sha256": "9ea976d93447b6d8b0bd0e131633fdef0050058ef85af2f3d9d9b18407380293"
+    },
+    "src/platform/offline.ts": {
+      "bytes": 2392,
+      "sha256": "ac8af72e9de261f36d46987d57e1035d33b4de3d61465dc41e9eae2f6c396acf"
+    },
+    "src/platform/persistence.ts": {
+      "bytes": 1160,
+      "sha256": "f0e9683b81dcc7be4904558b43163d04b4dfd869be6a5853be11ede62a9718b0"
+    },
+    "src/platform/records.ts": {
+      "bytes": 2280,
+      "sha256": "adb13ec10e2716f09894990f96eb2bbdebcd0645e1231a4aaccf3ff4c79ade47"
+    },
+    "src/platform/session.ts": {
+      "bytes": 7249,
+      "sha256": "46f878fabafbf0f3a2152bff6c87ad42b17e5878eeb9d18dc6896cf5f3ecc5e5"
+    },
+    "src/rendering/Scene.tsx": {
+      "bytes": 34450,
+      "sha256": "a176b2c81196b6d8781e54c49a4eb474938c0f3b98e01a492dc65ecef44ad988"
+    },
+    "src/rendering/geometry.ts": {
+      "bytes": 8103,
+      "sha256": "9579f7ea8f4d75472e5c3ee146a75c73177fb5e8e2d71712b8436448973ad09b"
+    },
+    "src/scale/Microscope.tsx": {
+      "bytes": 8950,
+      "sha256": "3f1f24c99041bbee0490ae4868803e5c7d313a66fb0ac95c8cc3aa6aa7143371"
+    },
+    "src/state/store.ts": {
+      "bytes": 2362,
+      "sha256": "a66a3bf9bd49647a8e70a01700b3f2050330bff9adb1097954b9240606b7a738"
+    },
+    "src/styles.css": {
+      "bytes": 30758,
+      "sha256": "4f178a5edc4bdbd2e598506a01f0aeec90375007c8621fcb8a9067ab48f28d58"
+    },
+    "assets/generation/README.md": {
+      "bytes": 1466,
+      "sha256": "36fc97cf3eb3f77dfec49440d9120888da6930d029d68cfc7ec3770f8697b2e5"
+    },
+    "assets/generation/generate-model.mjs": {
+      "bytes": 3487,
+      "sha256": "981b52c2fc5fe4e8d5e88709c9c4172a637cf0f337f8548bda5591bfc2738511"
+    },
+    "assets/generation/render-geometry-study.py": {
+      "bytes": 3523,
+      "sha256": "729a4cf210e2f121be4d6a8da39db929a8b45c2445172bc5c3579804ef58db22"
+    },
+    "tests/e2e/run.mjs": {
+      "bytes": 40200,
+      "sha256": "22abcf7462105491abe8d4ff90d217e3197e8399362eff5de56bcd6d13a9b4c5"
+    },
+    "tests/unit/contact.test.ts": {
+      "bytes": 9303,
+      "sha256": "806b4787680059b7f8e523ce14c34f146b57e70bf37140733b3791a5669a758b"
+    },
+    "tests/unit/learning.test.ts": {
+      "bytes": 2667,
+      "sha256": "382b25c6f2de38637703e1612ecf5e7b469aa9b77ea09194e9d915d2db5b8981"
+    },
+    "tests/unit/offline.test.ts": {
+      "bytes": 11694,
+      "sha256": "ae12aec66c5f150328b5b71e47b7978fa5fd717fa39f3eb965d228cd047533aa"
+    },
+    "tests/unit/render-geometry.test.ts": {
+      "bytes": 4863,
+      "sha256": "ab8419870c67583813e47d184968339098b3963277f0dd2c70026e0ac9c9e3c8"
+    },
+    "tests/unit/scales.test.ts": {
+      "bytes": 5425,
+      "sha256": "6dce19b1a215e6474a44984e93cb95fcf1a15fb9b3373058089644a78cda7ab2"
+    },
+    "tests/unit/session.test.ts": {
+      "bytes": 6275,
+      "sha256": "65c24471265c641c173e68ebc66944ffa7c9a904272ad14adf88a4c11cf64ea3"
+    },
+    "tests/unit/state-platform.test.ts": {
+      "bytes": 7666,
+      "sha256": "a1ff090589549908cd09633930daa130b415e9b128b9fd56b258d4aaa14544fd"
+    },
+    "tests/unit/verification.test.ts": {
+      "bytes": 4072,
+      "sha256": "05dfb8cde57e7ed1605469ef0424181a72fead6ecb6bafdd772258ecaf045a0f"
+    },
+    "scripts/offline-build.mjs": {
+      "bytes": 5079,
+      "sha256": "fff17d0a874ba183a7269e6abfa1485fa1a62b092b7e4ef1b417f7dc68621fd7"
+    },
+    "scripts/preview.py": {
+      "bytes": 1353,
+      "sha256": "fcfde51ab50258a84c4f1647a11be06f30f23c00c44ad1d4267035e9cf3049f7"
+    },
+    "scripts/serve.mjs": {
+      "bytes": 1466,
+      "sha256": "3969aa1094d5f550aa9ac4262a1b0da1def5d8ddf67718efae0e111f99410b09"
+    },
+    "scripts/verify_archive.py": {
+      "bytes": 3047,
+      "sha256": "43552fdbfd4f3f6bc1ed4cf441dbd4f11c2ab5323a2889e6a994f6465cef8349"
+    }
+  }
+}

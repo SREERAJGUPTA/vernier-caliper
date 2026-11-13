@@ -1,0 +1,64 @@
+{
+  "version": "5a982f774c63a0e0",
+  "cache": "precision-lab-5a982f774c63a0e0",
+  "base": "/vernier-caliper/",
+  "bytes": 1259414,
+  "gzipBytes": 356569,
+  "files": [
+    {
+      "url": "/vernier-caliper/assets/Anatomy-D8WC2LT_.js",
+      "bytes": 9326,
+      "sha256": "3a8acc6eb98afbf13f58db5a3e1a67878b7b14a3644a89225e2c8ad86bebe979"
+    },
+    {
+      "url": "/vernier-caliper/assets/ConceptQuestion-tvf8bDf2.js",
+      "bytes": 1290,
+      "sha256": "f623b36d1ed73999182564d38114079f8ed8da96c59724e33f620a156b80f1df"
+    },
+    {
+      "url": "/vernier-caliper/assets/Discover-wusqDJQc.js",
+      "bytes": 21753,
+      "sha256": "7030ab8bbbb4464551a9a50f95d7600e9c9942ed73c49388733fe9f32ed92368"
+    },
+    {
+      "url": "/vernier-caliper/assets/Scene-Cy52Zklh.js",
+      "bytes": 199433,
+      "sha256": "7bc848d45e2a21696c81ab4c5beac71fdba62619dae75cf76ae4848f3020ee51"
+    },
+    {
+      "url": "/vernier-caliper/assets/geometry-C38TmDIO.js",
+      "bytes": 711835,
+      "sha256": "d76caefd744afbc2f90990ebc106bb08d375b3287302ef23b22a65cf3d39165d"
+    },
+    {
+      "url": "/vernier-caliper/assets/index-CHYMV6mm.js",
+      "bytes": 270643,
+      "sha256": "3552d94697d439ae08eba11ae23fa10b7e3f27bad7e991d001ef9abcd615d419"
+    },
+    {
+      "url": "/vernier-caliper/assets/index-DGby9Iaj.css",
+      "bytes": 30672,
+      "sha256": "5015a3586723c67ed6f92ae9dfaf2a0ef93f59b028038e5be88d2743d078693d"
+    },
+    {
+      "url": "/vernier-caliper/assets/learning-hStR-4Oi.css",
+      "bytes": 13023,
+      "sha256": "dd243e233b98f446b4680034aada37436564a571f6055790b8a70dfacce240d8"
+    },
+    {
+      "url": "/vernier-caliper/icon.svg",
+      "bytes": 356,
+      "sha256": "b001001c07b7e77edd2820f5d52c07e5fc29ffac38ebf5a268f57ff84d5fb7b7"
+    },
+    {
+      "url": "/vernier-caliper/index.html",
+      "bytes": 774,
+      "sha256": "cbe737f1f953fc046f6700934424a3f83bcfa892d08a5f087d63aba91f40943d"
+    },
+    {
+      "url": "/vernier-caliper/manifest.webmanifest",
+      "bytes": 309,
+      "sha256": "bc8d2c4ba478f66b54d6957d755edacf98e3e2852fa85b061145a35772de9f87"
+    }
+  ]
+}

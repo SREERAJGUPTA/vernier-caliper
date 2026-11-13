@@ -1,0 +1,98 @@
+{
+  "kind": "Direct manual browser review through supported cloud browser",
+  "build": "5a982f774c63a0e0",
+  "script": "/vernier-caliper/assets/index-CHYMV6mm.js",
+  "runtimeRoute": "/vernier-caliper/",
+  "renderer": "WebGL unavailable; functional 2D instrument and SVG microscope",
+  "fullPlaywrightSuite": "Not executed",
+  "referenceHardwareMetrics": "Not Measured",
+  "offline": {
+    "method": "Exact production files cached and SHA-256 verified; managed origin server stopped; existing tab reloaded into a new document; server remained stopped through all listed workflows",
+    "coldBrowserProcessRestart": "Not performed",
+    "status": [
+      "Complete course available offline"
+    ],
+    "routes": [
+      {
+        "section": "Explore",
+        "heading": "Small marks.\nExtraordinary precision."
+      },
+      {
+        "section": "Measure",
+        "heading": "Make a careful observation."
+      },
+      {
+        "section": "Anatomy",
+        "heading": "Inside the instrument."
+      },
+      {
+        "section": "Discover",
+        "heading": "A smaller mark.\nA bigger idea."
+      },
+      {
+        "section": "Challenges",
+        "heading": "Outside dimensions"
+      }
+    ],
+    "modes": [
+      {
+        "mode": "external",
+        "opening": "52.9",
+        "contact": "Contact established"
+      },
+      {
+        "mode": "internal",
+        "opening": "12.82",
+        "contact": "Contact established"
+      },
+      {
+        "mode": "depth",
+        "opening": "35.36",
+        "contact": "Contact established"
+      },
+      {
+        "mode": "step",
+        "opening": "20.2",
+        "contact": "Contact established"
+      }
+    ],
+    "stepReading": {
+      "msr": 20,
+      "index": 10,
+      "N": 50,
+      "e": 0,
+      "enteredResult": "20.20",
+      "feedback": "Contact correct and reading correct"
+    },
+    "gestureEnabledAudio": {
+      "settingActivated": true,
+      "movementTriggered": true,
+      "audioConsoleErrors": 0,
+      "listeningReview": "Not performed"
+    },
+    "exportedRows": 10
+  },
+  "session": {
+    "challengeSeed": 2201,
+    "title": "Outside dimensions",
+    "N": 50,
+    "e": 0,
+    "opening": 15.66,
+    "locked": true,
+    "draft": {
+      "msr": "15",
+      "index": "33",
+      "result": "15.66"
+    },
+    "navigationAndReloadPreserved": true,
+    "explicitWorkerActivationPreserved": true,
+    "saveOptOutBlockedUpdateWithoutLosingWork": true,
+    "updateProbe": "Temporary preview worker comment created a waiting worker; application/runtime assets unchanged. Exact release worker restored and applied afterward."
+  },
+  "limitations": [
+    "No real WebGL visual or pointer test",
+    "No reference-device timings",
+    "No actual screen reader or classroom/pupil trial",
+    "Server-unavailable reload does not establish a cold browser-process restart with all networking disabled"
+  ]
+}

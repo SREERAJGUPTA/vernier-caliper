@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "rows": 10,
+  "columns": 23,
+  "browser_download_with_origin_server_stopped": true,
+  "csv_independent_parser": "Python csv.DictReader, utf-8-sig",
+  "all_four_modes_present": [
+    "depth",
+    "external",
+    "internal",
+    "step"
+  ]
+}

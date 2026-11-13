@@ -1,0 +1,10 @@
+node_modules/
+.vite/
+test-results/
+playwright-report/
+*.log
+.DS_Store
+*.gitbundle
+DELIVERY_MANIFEST.json
+REBUILD_REVISION.txt
+*.zip

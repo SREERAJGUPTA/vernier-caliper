@@ -1,0 +1,388 @@
+PRECISION LAB — PRODUCTION MASTER PROMPT
+The Art of Measuring the Almost Invisible
+
+ROLE AND COMMISSION
+
+Act as the lead creative technologist, graphics engineer, mechanical simulation engineer, physics educator, interaction designer, accessibility engineer, and front-end architect responsible for shipping this application. Implement the working product, its assets, tests, and documentation. Use this specification as the acceptance contract. Resolve routine implementation choices independently; record consequential tradeoffs.
+
+The product is a premium, browser-based Vernier caliper learning environment for Grade 8–10 CBSE students, with optional Grade 11–12 explanations. It serves independent learners, laptops, tablets, and classroom smartboards. Design for actual age, reading ability, input method, and viewing distance. A generational label is not a usability specification.
+
+The experience should combine the visual finish of a carefully lit industrial product exhibit, the responsiveness of an excellent interactive instrument, and a learning sequence built around student discovery. Its distinguishing moments are the first convincing jaw contact, the magnified discovery of a fractional alignment, and the realization that two ordinary scales produce a finer reading.
+
+Every original functional area is required: inspection, mechanical manipulation, external/internal/depth/step measurements, randomized objects, three least counts, magnifier, reading microscope, manual verification, signed zero error, calibration explanation, interactive anatomy, exploded view, history, guided lessons, challenges, teacher tools, local progress, measurement records, CSV export, sound, accessibility, responsive layouts, and offline operation. Sequence delivery; do not silently delete scope.
+
+Correctness and learning readability are release gates. Among solutions that pass them, pursue exceptional realism, responsiveness, and art direction. A simpler visual fallback must preserve the same mathematics. Decorative quality settings must never change measurement results.
+
+1. EXPERIENCE AND INFORMATION HIERARCHY
+
+Use five primary destinations: Explore, Measure, Anatomy, Discover, Challenges. Teacher controls are an accessible workspace setting, not a competing dashboard. Maintain the current measurement while navigating unless an action explicitly starts a new attempt.
+
+The opening viewport contains one beautifully modeled caliper, a short title, "Rotate. Explore. Measure.", and two clear starting actions: "Explore the instrument" and "Try your first measurement". Avoid a cinematic loading gate. Once the instrument is manipulable, interaction is immediately available. Gentle initial presentation motion stops on first interaction and remains off during measurement.
+
+The first guided task uses one simple object, one measurement type, and a 0.1 mm Vernier. Ask for a prediction, let the student establish contact, then invite them to read the scales. Do not open a twelve-field calculator, four measurement choices, and every overlay simultaneously. Reveal controls at the point of need while keeping all functions discoverable.
+
+Design a signature "From instrument to idea" interaction: selecting the scale establishes a stable front view and expands a linked vector reading surface from that location. After submission, the selected tick pair and the accumulated spacing difference become an explanatory overlay on that same state. Preserve the relationship between the steel instrument, its exact graduations, and the mathematics throughout the transition. The scene should teach through continuity rather than replacing the instrument with an unrelated diagram.
+
+Create three coherent presentation states sharing the same instrument:
+- Gallery: perspective inspection, warm studio lighting, restrained peripheral sakura.
+- Bench: stable instrument and object, clear contact surfaces, interaction tools.
+- Reading: orthographic, high-contrast, distraction-free scale inspection and calculation.
+
+Transitions preserve physical state. Students can interrupt a camera transition. No scroll-jacking, forced tours, hover-only instructions, or decorative interactions that imitate useful controls.
+
+Desktop uses a large central stage with restrained contextual panels. Tablet uses a stage plus one active drawer. Phone uses full-width stage and microscope views rather than shrinking all desktop panels. History is collapsible. Never overlay a drawer on the scale currently being read.
+
+Keep these reset contracts distinct:
+- Reset view changes only camera and presentation framing.
+- Reset measurement clears the current response, releases the physical slider lock, returns the selected object to an unseated position, and opens the jaws safely. Preserve least count, zero offset, and previous records.
+- New object starts a new unscored attempt with a new specimen.
+- Next challenge preserves completed results and starts the next seeded task.
+- Reset session clears the current learning session; clearing saved progress is a separate explicit action.
+
+2. ART DIRECTION AND ASSET PRODUCTION
+
+Use a bright, calm museum studio: warm ivory #F7F3E9, champagne #E9DFC9, pale beige #DED5C7, deep ink #22313C, restrained teal #356B67, muted gold #A18443, and sakura pink #EAC8CD. These are starting tokens; validate actual contrast before finalizing. Reserve pastel and gold for surfaces and accents when they do not meet text contrast requirements.
+
+The caliper is the visual centerpiece. Show convincing mass, fine bevels, an accurate silhouette, coherent fasteners, realistic jaw thickness, machined faces, restrained brushing, and fine dark graduations. Avoid excessive scratches and uniform chrome. The main steel should read as stainless steel through roughness, directional surface detail, reflection composition, and highlights across real bevels.
+
+Build a generic four-way caliper from documented manufacturer reference geometry. Record the reference and deliberate educational modifications. Do not claim it is a certified replica. Establish a named part hierarchy and contact datums before modeling cosmetic detail.
+
+Use parametric, beveled extrusions or a reproducible offline modeling pipeline for the hero asset. A stack of primitive boxes is suitable only as an early mechanics proxy. The final asset requires reviewed silhouettes, jaw profiles, carriage clearance, screws, depth-bar routing, and rear measuring faces. Supply source assets or reproducible generation scripts. If an asset or modeling tool is unavailable, produce a credible local procedural asset and explicitly identify the remaining fidelity gap.
+
+Use locally bundled studio environment lighting, prefiltered image-based reflections, a restrained key/fill/rim composition, and carefully budgeted shadows. Treat these as rendering approximations and verify their visual result. Keep the environment behind the viewer visually useful for metal reflections. Do not confuse a white background with effective lighting for reflective steel.
+
+Establish correct linear lighting/color-space handling and one consistent tone-mapping policy. Mark color textures and non-color data correctly. Use normal/roughness detail for fine machining; reserve geometry for silhouette and measuring surfaces. Do not displace metrological surfaces with decorative material maps.
+
+Depth of field is limited to optional gallery presentation and must disappear during interaction, anatomy inspection, or reading. Motion blur, bloom, chromatic aberration, and lens distortion are excluded from the measurement workflow. Real-time ray tracing is not a dependency. Achieve the scene through good assets, rasterized PBR, appropriate environment lighting, and controlled composition.
+
+Use restrained editorial typography: a quiet display face for the title, a highly readable sans-serif for controls, and tabular numerals for measurement data. Bundle licensed fonts or use a deliberate system stack. Engraved numerals and essential labels must remain readable in reading mode even if the gallery view shows their true small physical size.
+
+SAKURA CONTRACT
+
+Include a small, beautiful petal field in gallery presentation. Petals have plausible physical size relative to the instrument, varied depth, slowly changing orientation, seeded wind variation, and shared lighting. Use a lightweight flutter/drag model and simple collision with the exhibit floor or another explicitly modeled non-measuring surface. Occasional settling should feel natural; full fluid dynamics is unnecessary.
+
+Start with a cap of 12 visible petals on the enhanced tier, 6 on the standard tier, and none on the constrained tier. These are initial draw/overdraw budgets, validated through profiling and visual review, not claims of realism. Instance geometry/materials where useful. Decorative petals do not participate in instrument picking or measurement collisions.
+
+Keep petals out of the scale, calculator, contact regions, and instructional text. Fade them away in reading and challenge measurement states. Honor reduced-motion preferences and a persistent "Ambient motion" setting. Stop animation when the document is hidden and render on demand when no motion is active. Do not trade a delayed drag response for another petal.
+
+VISUAL REVIEW GATE
+
+Capture consistent front, rear, three-quarter, jaw-contact, depth-contact, and microscope views on the declared reference viewports. Review silhouette, material differentiation, edge highlights, contact readability, label contrast, scale legibility, and UI hierarchy against the design intent and manufacturer references. Record reviewer observations and remaining defects. Automated screenshots can detect regression; they cannot certify beauty or photorealism. Never invent a numerical realism score as measured evidence.
+
+3. TECHNOLOGY AND RENDERING DECISION
+
+Use React, TypeScript, Vite, Three.js, React Three Fiber, semantic HTML/CSS, and deterministic SVG for precision scale work. Use small, established libraries only where they solve a concrete problem. Pin mutually compatible stable versions in a lockfile and check the documentation for those versions. Do not mix incompatible Three.js import trees, material systems, or postprocessing stacks.
+
+Ship a dependable WebGL 2 baseline. WebGPU is an optional engineering decision, not a visual-quality requirement. If considering Three.js WebGPURenderer, first demonstrate a measured benefit or necessary capability using this scene and verify the exact materials, shadows, postprocessing, R3F integration, device-loss behavior, and its WebGL backend. Its fallback is not a promise that arbitrary WebGLRenderer custom shaders and effects work unchanged.
+
+Do not maintain two independent rendering implementations merely to display a technology badge. Choose one renderer family for release. If the WebGPU experiment fails its parity or performance gates, retain the WebGL baseline and document the result. Scientific behavior must remain identical across supported rendering paths.
+
+Use one primary 3D canvas. A magnifier may use a bounded second camera/scissor or offscreen pass into that renderer when activated. Keep the precision SVG independent of GPU resolution. Do not create several WebGL contexts for tabs, thumbnails, lenses, and anatomy.
+
+Separate these modules:
+- Domain: units, dimensions, Vernier construction, signed indication, rounding, validity, and verification.
+- Mechanics: slider displacement, component transforms, physical lock, and instrument datums.
+- Contact: specimen shapes, placement constraints, contact solving, and contact validity.
+- Rendering: model meshes, materials, lights, camera, optional petals, and quality controls.
+- Scale: common scale descriptors, SVG renderer, 3D graduation representation, and microscope mapping.
+- Interaction: pointer ownership, ray/plane mapping, keyboard actions, and touch gestures.
+- Learning: lessons, challenges, response drafts, reveal permissions, and feedback.
+- Platform: audio, local persistence, export, caching, and diagnostics.
+
+The domain/contact engine has no React, DOM, Three.js, audio, or network dependency. It can be tested independently. Use pure functions and serializable scenario definitions. A small external store may hold authoritative live mechanical state; semantic UI state can use normal React state. Never maintain unrelated copies of jaw position in React, mesh transforms, and the calculator.
+
+High-frequency events update the authoritative constrained state. Rendering reads that state once per frame. Update meshes and active SVG transforms without rerendering the entire React tree on every pointer movement. Keep fast state access narrow, reuse vectors/materials/geometries, and avoid allocations and expensive storage writes in the render loop. Persist on meaningful events or debounce outside the hot path.
+
+4. MECHANICAL AND METROLOGICAL CONTRACT
+
+Document the coordinate system before modeling. Use millimetres in the domain. If rendering uses another scale, expose one conversion function used consistently. Define the caliper's local X axis along the beam, an external fixed-face datum, the graduation datum, inside-contact features, depth reference face, depth tip, and rear step faces. Store contact surfaces as named analytic features rather than guessing from decorative mesh bounds.
+
+Let d be the physical slider opening in millimetres, bounded by 0 <= d <= 150. There is exactly one authoritative d. The movable external jaw, movable internal jaw, carriage, Vernier plate, depth bar, and rear moving step face derive from d through documented rigid transforms. A cosmetic screw can rotate; it cannot become a second displacement source.
+
+Use continuous mechanical displacement, represented with sufficient numeric precision. Do not quantize the physical jaw to the least count. Generated challenge dimensions and reference calculations may use integer micrometres/rational values to avoid decimal ambiguity. Internal numeric precision is an implementation property, not a claim that students can measure to that precision.
+
+The physical slider lock prevents any action that changes d, including pointer, keyboard, and thumb roller. Camera rotation lock is independent. A camera reset never changes d, specimen pose, zero offset, physical lock, or response draft.
+
+Maintain the full carriage and Vernier span throughout travel. A 50-division direct Vernier spans 49 mm. Provide sufficient beam, main graduations, and carriage support at maximum opening; a nominal 150 mm measuring range is not a 150 mm total beam-length specification.
+
+Model all required parts: main beam, fixed/moving external jaws, fixed/moving internal jaws, carriage/slider, main and Vernier scales, real thumb roller or documented fine-adjust feature, locking screw, depth bar, rear step faces, and coherent fasteners. Base the thumb mechanism on the chosen instrument; do not invent a micrometer ratchet or gear train.
+
+5. EXACT SCALE CONSTRUCTION AND SIGNED ZERO ERROR
+
+For the supported direct Verniers:
+- N = 10: 10 divisions span 9 mm; LC = 0.1 mm.
+- N = 20: 20 divisions span 19 mm; LC = 0.05 mm.
+- N = 50: 50 divisions span 49 mm; LC = 0.02 mm.
+
+With 1 MSD = 1 mm:
+  VSD = (N - 1) / N mm
+  LC = MSD - VSD = 1 / N mm
+
+N divisions require N + 1 graduation lines, including both endpoints. Store semantic division indices separately from any printed major labels. Educational plates may use clear index labels in the microscope; distinguish these from the authentic instrument engraving.
+
+Let a be the fixed main-scale datum and e the signed zero offset. Simulate e as a displacement of the Vernier graduation pattern relative to the carriage's mechanical datum, not as a change to jaw contact geometry. The plate design must accommodate the supported small offsets. This is an explicitly idealized additive zero-error model; do not imply that it models every cause of instrument error.
+
+For integer main tick k and Vernier tick j = 0 ... N:
+  x_main(k) = a + k mm
+  x_vernier(j) = a + d + e + j * (N - 1) / N mm
+  raw observed indication r = d + e
+  ideal corrected reading = r - e
+
+The same descriptors drive 3D markings, SVG, magnification, zero-error views, and verification. Main-scale support includes the small negative region needed for negative zero error and sufficient high-end margin for the complete Vernier. Cosmetic highlighting never moves a tick.
+
+At an exactly representable indication r = m + n/N mm, define:
+  m = floor(r / 1 mm), expressed as the integer millimetre reading
+  n = N * (r - m mm) / 1 mm, an integer in 0 ... N - 1
+  observed reading = m mm + n * LC
+
+Then Vernier tick n coincides with main tick m + n. Use this relationship as an independently checked invariant. At an integer reading, both endpoint ticks can align; canonically use n = 0 and never add an extra millimetre by treating the endpoint as a fractional contribution of N.
+
+For negative r, use floor and a nonnegative remainder, not truncation toward zero. Example: N = 50, d = 0, e = -0.02 mm gives r = -0.02 mm, m = -1, n = 49. The calibration lesson should teach the conventional closed-jaw interpretation: e = -(N - n) * LC for a small negative offset, rather than presenting a confusing unexplained negative MSR to beginners.
+
+For a small positive closed-jaw offset, e = n * LC. Explain both sign conventions visually. Examples +0.04 mm and -0.02 mm belong to the 0.02 mm configuration; do not pretend they are exactly resolvable on every plate.
+
+An arbitrary continuous position generally has no exact tick coincidence. Compute that condition honestly. If r is off the current LC lattice, show the true geometry and, in Explore, identify any estimate as approximate. A rounded digital estimate, if displayed, is derived output only: it must not move the jaws, move ticks, or create an exact coincidence. Document and test the rounding tie rule.
+
+Use a declared coincidence epsilon no greater than 1e-9 mm solely for floating arithmetic noise, independent of screen resolution, tick thickness, and LC. Canonical challenge contacts must be solved accurately enough to meet that epsilon. Never treat a visually near-overlap as mathematical equality.
+
+Generated introductory challenges choose object dimensions and e on the active LC lattice, giving a genuine exact coincidence at valid contact. Advanced off-lattice tasks explicitly teach estimation and are assessed using the stated resolution rule, never presented as exact-coincidence puzzles.
+
+Changing plate configuration in Explore preserves physical d and e, regenerates scale geometry, and clears stale response calculations. If e or r is no longer exactly representable, explain that fact without silently rounding the physical state. Changing configuration during a challenge explicitly starts a new task; preserve the prior task as skipped/unscored. Do not silently alter its answer.
+
+Zero check, mathematical zero correction, calibration against reference dimensions, and physical adjustment are distinct concepts. Correcting an answer does not repair the instrument. Include comparisons with known reference dimensions to motivate calibration; do not claim a virtual zero reset is a complete real-world calibration procedure.
+
+6. CONTACT AND SPECIMEN WORKSHOP
+
+Use a constrained kinematic contact model as the baseline. It should provide precise, stable behavior for explicitly supported shapes and measurement fixtures. A generic rigid-body solver is unnecessary for the measurement path; decorative secondary dynamics must never determine the reading.
+
+Specimens are generated from shape definitions used to construct their visible geometry and contact features. The solver queries geometry, support functions, or surface intersections. It does not read an answer-key field and assign that number to the slider. The challenge engine derives its reference dimension independently from the specimen definition.
+
+Provide a valid measuring plane and a small, intentional set of placement freedoms for each task. Let students drag a specimen from a tray, preview placement, and seat it near a valid region. Gentle snapping may assist pose alignment; it must not close the jaws or complete the measurement. Provide equivalent Place/Align/Remove buttons and keyboard controls.
+
+Use swept constraints or equivalent conservative motion handling so large pointer jumps cannot tunnel through the instrument. A visibly styled placement preview may show an invalid pose, but a solid placed object must not intersect solid measuring surfaces. Keep rendered contact features consistent with the analytic surfaces.
+
+External: include cylinders, a sphere within the jaw reach, coin-like disks, a bolt shaft, and rectangular blocks. Seat the reference side, then close the movable jaw to the specimen's opposing support surface. Solve both contact locations with finite jaw reach and a valid measuring section. A bolt's threaded decoration must not silently substitute its nominal shaft dimension.
+
+Internal: include rings, washers, pipes, and suitable socket/bearing-like cavities. Insert the inside jaws before expanding. Model their actual outward contact features, thickness, clearance, and insertion depth. Require a valid centered diametral pose for diameter tasks. Off-center contact can measure a chord; do not label every wall-to-wall contact as the true diameter. Exclude bores too small for the modeled tips rather than pretending the jaws have zero thickness.
+
+Depth: include blind holes, stepped cavities, and a small vessel. Seat the beam's depth reference face on the reference surface before extending the depth bar. Validate tip clearance from walls and contact with the selected bottom. A rod touching the bottom with an unseated reference face is not a valid depth measurement.
+
+Step: use the actual rear measuring faces on a two-level block and a compatible stepped flange/plate specimen. Define which face establishes the reference and which reaches the other surface. Derive the result from the separation of these faces using the same d. Do not substitute external jaws while relabeling the activity.
+
+Provide a Contact Inspector, particularly for internal and depth tasks. A controlled cutaway or a linked analytic cross-section reveals the actual reference face, probe contact, and remaining clearance. The displayed section is generated from the current specimen and contact state. Label it as an explanatory view; changing its visibility never changes collision geometry or completes a measurement. In challenges, it can show seating validity without revealing the unknown dimension.
+
+Track placement and validity explicitly: unplaced, positioned, reference seated, probing, valid contact, and submitted. Physical locking may occur at an invalid position, just as it can on an instrument; the assessment must explain that locking alone does not establish valid contact.
+
+At least two geometric specimen families per measurement mode must work before declaring that mode complete. Randomization changes dimensions, appearance, and only supported orientations. Validate measuring range, jaw reach, beam clearance, bore access, depth-bar access, wall thickness, and reference-face access. A dimension below 150 mm is not sufficient to prove measurability.
+
+Provide Generate Random Object, New Object, Place/Align, Remove Object, Reset Measurement, and Next Challenge. Generate seeded cases for reproducibility. Student-facing names and descriptions must not disclose dimensions during a task. Avoid answer leakage through filenames shown in UI, ARIA labels, debug panels, digital readouts, or preselected coincidence highlights. This is local learning software, not a secure examination platform.
+
+The default mechanics assume rigid objects and an ideal guide. Teach excessive force and jaw tilt in a clearly labeled technique explanation or controlled model with stated assumptions. Do not infer physical force from mouse speed or claim real deformation is simulated when it is not.
+
+7. CAMERA, DRAGGING, AND PRECISION INPUT
+
+Provide 360-degree horizontal inspection, sufficient vertical orbit for top/underside inspection, front/rear/side/top presets, Focus on Scale, Fit Instrument, Reset View, and one clear camera-rotation-lock toggle. Preserve an intelligible up direction and prevent accidental inversion or loss of the instrument. Clamp zoom and panning to useful bounds; presets must work from every permitted pose.
+
+Use an explicit interaction controller. At pointer-down, grant one owner: interface, carriage, specimen, magnifier, or camera. Hold pointer capture until release/cancel. Disable camera gesture handling during a mechanical drag and restore the user's selected camera-lock state afterward. Test lost capture, pointer cancellation, window blur, and multi-touch interruption.
+
+Map a carriage drag into the caliper's measurement axis with a ray/interaction-plane or projected-axis calculation. When that projection is nearly singular, offer or enter a clear front interaction view rather than amplifying tiny pointer movements into large slider changes. Preserve drag offset so grabbing the carriage does not make it jump.
+
+Directly manipulated d follows input immediately after constraints are applied. Do not add springs, inertia, overshoot, or decorative easing to active precision movement. The rendered measuring surfaces and scale read the same current state. Camera and placement-assist transitions may use frame-rate-independent damping, stop at exact valid endpoints, and remain interruptible.
+
+Use elapsed time rather than frame counts for transitions. Replay representative camera/placement transitions with simulated 30, 60, and 120 Hz updates and verify consistent duration, final pose, cancellation, and unchanged measurement state.
+
+Provide a fine-adjustment UI and keyboard nudge controls. Default nudges can use LC; offer a documented finer increment in Explore without implying mechanical detents. Provide accessible buttons for larger travel and fine steps. Wheel events adjust only the focused feature; do not hijack ordinary page scrolling.
+
+Touch supports one-finger manipulation of the selected feature and separate camera gestures, including pinch zoom. Limit touch-action suppression to the interactive surface. Keep normal browser zoom and reading navigation available elsewhere. Camera rotation lock must never prevent a carriage drag.
+
+8. MAGNIFIER AND READING MICROSCOPE
+
+Provide a movable lens, magnification control, focus on zero, focus on a user-selected tick, freeze, resume, and reset. Surface magnification uses a higher-detail crop of actual geometry through a second camera pass when supported; enlarging an existing low-resolution screenshot is insufficient.
+
+The precision reading microscope is mandatory on every tier and uses deterministic SVG from the shared scale descriptors. It offers a full-scale overview plus a synchronized, pannable local close-up showing both scales with the same x mapping. This represents the instrument's actual geometry without perspective distortion.
+
+Do not claim a full 49 mm Vernier is reliably readable at 0.02 mm on a small screen merely because it is vector-based. At 1,000 CSS pixels across 49 mm, 0.02 mm spans about 0.408 CSS pixels. At maximum reading magnification, provide at least 4 CSS pixels per LC, using at least 200 CSS pixels/mm for the 0.02 mm plate. Show only the local region that fits and let students pan or select candidate tick regions. Keep the full overview for orientation.
+
+At high zoom, use stable screen-space stroke widths and clear indices, with enough nearby main ticks to compare alignment. Do not distort relative spacing or move ticks to screen pixel centers if that changes the science. Show edge context so students know which graduation they are inspecting.
+
+Explore may highlight MSR, zero, a selected or correct coincidence, and the fractional contribution. Challenge mode does not automatically focus, color, announce, or magnify the answer tick before an attempt. Students may navigate to any candidate tick themselves. Hints unlock explicitly after an attempt or by request.
+
+Freeze captures an immutable scale-state snapshot, visibly labeled Frozen. A frozen inspection must not silently mix with changing live geometry. Resume Live before verifying the current physical measurement, or explicitly choose a snapshot-based reading exercise with its own stored state. Submission stores the exact state being assessed.
+
+9. LEARNING, MANUAL CALCULATION, AND FEEDBACK
+
+Build four learning modes: Explore with all explanations, Guided with one skill at a time, Practice with independent measurements, and Challenge with randomized tasks, optional timer, hints, and scoring. Timing is optional and never the only route to progress.
+
+Discover the Least Count starts with 10 main divisions spanning 10 mm and 10 Vernier divisions spanning 9 mm. Let students predict, move the scales, compare 1 mm with 0.9 mm, and infer the 0.1 mm difference. Then investigate 20 over 19 and 50 over 49. All tick locations are recalculated; animation cannot substitute a different illustrative scale.
+
+Teach resolution, accuracy, and repeatability separately. Smaller graduation spacing does not establish real instrument accuracy. Include good viewing direction, clean contact surfaces, zero checks, object alignment, measuring pressure, units, and appropriate reported precision. A parallax demonstration must use the modeled separation between graduation planes and viewing geometry; do not fake it by sliding unrelated labels.
+
+The first manual panel asks only for main-scale reading, coinciding division index, and result. Expand or stage the following fields as relevant:
+- MSD, number of Vernier divisions, VSD, calculated LC.
+- MSR, coinciding index n, Vernier contribution n * LC.
+- Observed reading, signed zero error, corrected result, and units.
+
+Student answer fields do not change the actual instrument configuration. Instrument settings and response drafts are distinct data.
+
+Use clear terminology and equations:
+  LC = MSD - VSD
+  Vernier contribution = n * LC
+  Observed reading = MSR + Vernier contribution
+  Corrected reading = Observed reading - signed zero error
+
+The final equation gives the ideal dimension only when measurement contact and alignment are valid within this simulation's assumptions.
+
+Verification assesses two things separately: measurement technique/contact validity and reading/calculation correctness. A numerically correct answer with an unseated depth reference is not a successful physical measurement. Diagnose the earliest relevant error and offer targeted feedback: wrong main-scale interval, wrong tick index, division-count confusion, wrong least count, multiplication mistake, sign mistake, invalid contact, or units mismatch.
+
+Do not cascade one incorrect MSR into several unexplained failures. Recognize correct arithmetic performed on an earlier incorrect input and explain the source of the discrepancy. Accept equivalent numeric formatting and valid unit conversion when allowed; distinguish a value error from a suggestion to report 3.50 mm rather than 3.5 mm at 0.05 mm resolution.
+
+After submission, reveal the correct contact state, scale reasoning, arithmetic, and optional step-by-step solution. In teacher mode, reveal/hide is explicitly controlled. Do not claim that a local teacher toggle provides access security.
+
+Include tasks across all four measurement types, least-count inference, both zero-error signs, wrong-tick diagnosis, resolution versus accuracy, and transfer to a new object or scale. Store optional local progress by objective and misconception, with a reset option. No accounts or remote tracking.
+
+10. ANATOMY, HISTORY, AND CLASSROOM TOOLS
+
+Anatomy provides an accurate vector front/rear illustration derived from shared part definitions or an orthographic rendering with vector annotation overlays. It remains sharp at classroom size. Label fixed/moving external jaws, fixed/moving internal jaws, main scale, Vernier scale, slider, locking screw, thumb roller, depth bar, beam, and rear step faces.
+
+Labels point to actual components. Clicking a part or label highlights the same part and shows its function. Offer suitable camera views and logically separated exploded/reassembled states. Pause measurement interactions while exploded. Preserve the assembled measurement state and restore it exactly on reassembly. Clearly distinguish an explanatory explosion from an operable measuring pose.
+
+The history experience is titled "How Small Can We Measure?" and opens with "If a ruler can measure a millimetre, how do we measure something even smaller?" Cover six concise chapters: early measurement needs; limitations of coarse graduations; comparing two spacings; the Vernier principle; precision in manufacturing and science; mechanical to digital instruments.
+
+Use Pedro Nunes's 1542 nonius and Pierre Vernier's 1631 publication with careful sourcing, distinguishing their different constructions and the older history of caliper-shaped instruments. Do not claim Vernier invented all calipers in 1631. Avoid implying early people could never estimate between ruler marks. Digital calipers use an encoder and electronics; do not describe one sensing mechanism as universal.
+
+Build the history around short experiments and useful illustrations, not an unrelated slideshow. Use locally available, licensed imagery or original vector drawings. Label modern reconstructions as illustrations. Bundle concise source notes so factual context remains available offline; external reference links open only on user request.
+
+Teacher tools include objective/difficulty selection, seeded challenge generation, reveal/hide, fullscreen with an in-page fallback, large-font microscope view, reset session, and adjustable assistance. In presentation mode, make the active scale and explanation readable without exposing every control.
+
+Allow local measurement records containing specimen name/type, mode, LC, MSR, coincidence index, Vernier contribution, zero error, corrected result, units, verification status, and scenario seed. Export well-formed CSV locally. Keep user-entered values separate from verified reference values. Save meaningful completed observations rather than logging every pointer movement.
+
+11. SOUND AND ACCESSIBILITY
+
+Generate subtle sliding sound from movement speed, a single gentle contact sound at a meaningful contact event, and restrained lock/placement feedback. Use locally bundled recordings or browser audio synthesis. Manual caliper graduations do not imply a click at every tick. Prevent repeated contact chatter, limit simultaneous voices, and keep timing tied to real state transitions.
+
+Audio starts only after an explicit user gesture and an enabled sound setting. Provide mute and volume, remember the preference, and suspend audio in hidden documents. Complete every educational task without sound.
+
+Target WCAG 2.2 AA for the application interface and provide equivalent accessible learning routes for the instrument tasks. Include semantic navigation, visible focus, logical tab order, labeled fields, readable validation, escape/close behavior, and focus restoration for drawers/dialogs.
+
+Every essential drag operation has both keyboard and single-pointer non-drag alternatives. Prefer 44 x 44 CSS-pixel primary touch targets; satisfy the relevant AA minimum size/spacing rules throughout. Verify normal text contrast of at least 4.5:1, qualifying large text at least 3:1, and required non-text control indicators at least 3:1 against adjacent colors. Do not rely on color alone. Respect reduced motion and avoid essential hover behavior.
+
+Provide a DOM-based scale-reading alternative describing observable scale relationships or offering equivalent structured observations, followed by the same reasoning task. Do not put the hidden true dimension in an accessibility label. A visual canvas caption alone is insufficient. Announce significant contact/lock/verification changes without speaking every animation frame.
+
+Test keyboard-only completion, a screen reader, reduced motion, 200% zoom/reflow, portrait/landscape touch, and large-screen presentation. Automated accessibility checks complement manual task testing; they do not certify the complete 3D learning experience.
+
+12. OFFLINE AND STATIC DELIVERY
+
+No external AI services, runtime CDN imports, remote fonts, remote environment presets, telemetry, cloud processing, login, backend database, or server-side application logic. Browser APIs for rendering, audio, storage, and caching are allowed. Development and dependency installation may use the network; delivered runtime assets are local to the static application.
+
+Use a base-path-aware Vite build and robust routing, preferably hash routes for simple GitHub Pages deployment. Test at a non-root path such as /precision-lab/. Asset URLs, manifest start URL/scope, service worker registration/scope, dynamic imports, worker files, and decoder/transcoder files must all work there. Check helper-library defaults for hidden remote requests.
+
+The initial visit requires HTTPS static hosting, or localhost for local serving. After the complete offline package is cached and controlled by the service worker, it must work without a network connection. Do not promise that double-clicking file://index.html supports this PWA pipeline or that browser storage can never be evicted. A local folder distribution may include instructions for a small local static server without an application backend.
+
+Lazy-load nonessential modules for startup, then offer an explicit Make Available Offline action that downloads and verifies every required lesson, challenge module, asset, and font. Show actual caching progress and only announce Offline Ready after the complete required manifest is available. Do not confuse cached shell availability with a completely offline course.
+
+Use versioned caches and a safe update flow that does not replace code/assets halfway through an assessment. Preserve active work before activating an update. Handle storage failures and missing optional enhanced assets gracefully. Local progress is optional; the app must remain usable if persistence is unavailable.
+
+If 3D initialization fails or the context is lost, preserve learning state and offer a functional 2D instrument/scale route with the same mechanics and calculations. Identify the unavailable 3D inspection capability plainly. Do not replace the experience with an error page or a decorative screenshot.
+
+13. MEASURABLE QUALITY CONTRACT
+
+All figures below are proposed engineering targets, not claimed measurements. Establish actual reference hardware before asserting a pass. For each result, record commit/build, device, GPU, RAM, OS, browser version, viewport, refresh rate, quality tier, scenario seed, sample duration, and instrument used to measure it. If unavailable, record Not Measured. Emulation is useful for layout/input coverage; it does not establish real mobile GPU or thermal performance.
+
+Reference profiles:
+- Baseline desktop: a real Intel i5-1135G7/Iris Xe laptop with 8 GB RAM, 1920 x 1080 display at 60 Hz, current supported Chromium browser. An alternative must be identified and justified.
+- Tablet: a real iPad 9th generation/A13, or a documented comparable tablet, using its supported current Safari release.
+- Midrange phone: a real Snapdragon 695/Adreno 619 class Android phone with 6 GB RAM, or documented comparable hardware, using supported current Chrome.
+- Classroom: a 3840 x 2160 display with browser/GPU identified; cap 3D render resolution independently of native-resolution DOM/SVG.
+
+Q1 — Mathematics. All exact-lattice reading cases must match an independent integer/rational reference without displayed arithmetic discrepancies. Where floating calculations are unavoidable, use an explicit absolute domain tolerance no greater than 1e-9 mm for the stated scale equations. Test against independently derived expected values, including negative indications and boundaries. This tolerance is numerical, not a physical accuracy claim.
+
+Q2 — Mechanical/contact geometry. CPU analytic contact residual and forbidden penetration must be <= 1e-6 mm for supported canonical fixtures. Rendered measuring-face positions must agree with their analytic definitions within 0.001 mm in instrument coordinates. Measure transformed contact vertices/anchors separately from the solver and inspect close-up contact images. Cosmetic mesh simplification cannot change these surfaces. State the model's rigid-body assumptions.
+
+Q3 — Scale readability. SVG tick transforms must agree with expected projected coordinates within 0.25 CSS pixels in deterministic layout checks; verify 3D graduation placement separately in instrument units. At maximum precision zoom, LC maps to >= 4 CSS pixels. Test all plates, main-scale boundaries, viewport sizes, and fractional phases. Pixel captures check clipping/aliasing; numeric transforms establish geometric correctness.
+
+Q4 — Desktop motion. Target 60 fps on the baseline desktop. After asset/shader warm-up, at least 95% of frame intervals in a repeatable 60-second manipulation sequence should be <= 20 ms, with p99 <= 33.4 ms on the declared 60 Hz display. Repeat after ten minutes of sustained use. Inspect frame traces and long tasks; an average fps alone is insufficient.
+
+Q5 — Mobile motion. Target 60 fps where profiling supports it, with a validated stable 30 fps tier as the baseline. At that 30 fps tier, at least 95% of intervals should be <= 35 ms, with p99 <= 66.8 ms during the same measurement sequence and after a ten-minute thermal run. Use actual devices and state which target was achieved. Report initialization separately from steady-state interaction.
+
+Q6 — Drag responsiveness. Target p95 pointer-event timestamp to rendering submission <= 33 ms on desktop and <= 67 ms on the 30 fps mobile tier after warm-up. Instrument input handling and frame application, then inspect browser traces. These are software latency proxies, not measured input-to-photon latency. Use synchronized high-speed video only if claiming actual display latency. Avoid tweening active jaw movement.
+
+Q7 — Interface responsiveness. Target INP <= 200 ms for relevant menu, tap, and keyboard interactions in supported measurements. Treat synthetic lab interactions as lab evidence, not population field data. INP does not certify continuous drag smoothness; validate Q6 separately. Achieve this by removing main-thread long tasks, narrow subscriptions, and deferred nonessential work.
+
+Q8 — Startup. On the baseline desktop under a declared cold-cache 10 Mbit/s, 100 ms RTT profile, target initial critical transfer <= 2 MiB and first manipulable instrument <= 4 seconds. Add a custom User Timing mark after event handlers, first usable geometry, and required shaders are ready, and verify an actual drag at that point. Target page LCP <= 2.5 seconds and CLS <= 0.1 for the shell, while recognizing these do not certify canvas readiness. Use a model proxy if necessary while the final asset loads without changing state or blocking input.
+
+Q9 — Offline availability. Start with a <= 20 MiB transferred baseline offline-package budget; justify any increase with measured visual value and device results. Larger optional enhanced assets must be separately identified and cached before claiming they are available offline. Test a fully cached cold browser restart with networking disabled, navigate every section, generate tasks in all modes, use audio after a gesture, and export records. A second visit to the home tab alone is insufficient.
+
+Q10 — Rendering cost and quality adaptation. Begin with <= 150 visible draw calls and <= 250,000 visible triangles in the standard interactive scene, counting activated magnifier/shadow passes when reporting totals. Treat these as profiling budgets rather than visual-quality guarantees. Reuse assets, merge or instance graduations and petals, and avoid per-tick heavyweight meshes. Use approximately a 2-megapixel 3D render-buffer cap for the standard tier, subject to measured adjustment; keep SVG/DOM at native screen resolution. Report renderer counters, texture memory estimates with their method, and actual frame timings.
+
+Q11 — Stability. A repeated scripted sequence of 50 object replacements and 20 navigation/explode/reassemble cycles must not show monotonically growing live mesh, geometry, material, listener, or audio-node counts after settling. Test tab hide/show, context loss, persistence failure, and interrupted drags without losing the authoritative measurement state. Record absolute counters and profiler limitations rather than asserting an invented universal memory figure.
+
+Q12 — Accessible interaction. Every required learning task must have a documented keyboard and single-pointer non-drag completion path. Validate contrast/targets with automated tools and manual review, then run actual task completion with keyboard and a screen reader. Record failures and the scope of review. Do not claim full conformance from an automated score.
+
+Q13 — Learning usability. Prepare a moderated pilot with 10–12 representative students and a teacher. Proposed acceptance target: at least 80% complete the first simple valid measurement and identify the required reading inputs within 90 seconds without verbal rescue. Test scale reading, zero-error sign, and transfer to an unfamiliar object with parallel pre/post questions; report counts, misconceptions, and limitations. A small pilot does not prove learning causality. If participants are unavailable, deliver the protocol and mark educational effectiveness Not Validated rather than fabricating results.
+
+Q14 — Classroom legibility. Test the actual target display, room lighting, and farthest intended viewing position. A teacher/student observer must correctly distinguish selected tick pairs, signs, units, and labels in presentation mode. Record display size and viewing distance; a 4K screenshot is not evidence of back-row readability. Provide adjustable type and microscope zoom to resolve failures.
+
+Quality adaptation removes decorative motion, reduces 3D render pixels, then reduces costly optional shadow/AO/reflection effects while preserving readable contact. Use sustained frame-time windows and hysteresis so quality does not oscillate. Prefer a quality transition after pointer release when possible. A user can select or lock a tier. No tier changes d, e, scale construction, contact validity, assessment, or SVG precision.
+
+14. VALIDATION AND TEST COVERAGE
+
+Use meaningful unit/property tests for mathematics and contact, integration tests for controls/state, and end-to-end tests for complete student workflows. Establish an independent oracle for scale equations and fixture dimensions; calling the same helper from rendering and verification only proves consistency, not correctness.
+
+Retain these fixed examples:
+- N=10, MSR=7 mm, n=6 => 7.6 mm.
+- N=20, MSR=12 mm, n=7 => 12.35 mm.
+- N=50, MSR=23 mm, n=24 => 23.48 mm.
+- Observed 23.48 mm, e=+0.04 mm => corrected 23.44 mm.
+- Observed 23.48 mm, e=-0.02 mm => corrected 23.50 mm.
+- Closed jaws, N=50, e=-0.02 mm => negative indication and tick 49 coincidence.
+- An integer indication uses canonical n=0 despite the endpoint coincidence.
+
+Exhaustively test representable openings over 0–150 mm for all three N values and the supported zero offsets. Add randomized off-lattice states, exact mm boundaries, immediately adjacent values, maximum opening with positive e, and configuration switches. Confirm that continuous motion never invents an exact coincidence.
+
+Test real transformed jaw/depth/step features against independent analytic fixture dimensions. Cover valid/invalid contacts, wall collisions, too-small bores, off-center inside contact, beam/jaw reach limits, large pointer jumps, placement/removal, locked movement through every input route, repeated opening/closing, and seeded generator validity.
+
+Integration tests must verify independent locks, reset-view state preservation, aborted gestures, side-view degeneracy, frozen/live microscope behavior, explode/reassemble restoration, configuration-change semantics, student fields not mutating instrument settings, hidden-answer behavior, per-field feedback, records, and CSV parsing.
+
+End-to-end tests cover a full measurement in each mode, positive/negative zero correction, guided learning, a failed and corrected attempt, teacher reveal/hide, keyboard workflows, touch-sized layouts, offline deep navigation at a deployment subpath, and recovery from a missing optional asset. Screenshots cover all critical mechanical poses and scale examples in deterministic lighting with decorative motion disabled.
+
+Automated software rendering is acceptable for deterministic visual regression. It is not evidence that integrated GPUs meet real-time targets. Report unit/integration passes, visual inspections, real-device measurements, accessibility review, and human learning pilots as separate evidence categories.
+
+15. IMPLEMENTATION MILESTONES AND HANDOVER
+
+Build in functioning vertical slices. Accessibility, asset budgets, deployment paths, and performance are considered from the beginning; the last milestone verifies and refines them.
+
+Milestone 0 — Contract and test harness. Establish units/datums, the signed scale equations, independent oracle, scenario schema, reference-device plan, basic static build, CI/test commands, and an offline routing proof. Write architecture and metrology notes. Resolve impossible geometry before rendering polish.
+
+Milestone 1 — Hero proof. Ship one credible caliper, continuous linked slider, independent locks, robust camera/input ownership, a 0.1 mm SVG microscope, and one external object with genuine contact. Complete the first guided read/submit/feedback loop. Demonstrate that its appearance and responsiveness can reach the intended quality before multiplying features.
+
+Milestone 2 — Measurement completeness. Add all four contact geometries, required specimen families, placement controls, generator validity, and internal/depth/step reference-contact feedback. Validate geometry with close-up views and independent tests.
+
+Milestone 3 — Precision learning. Add all plates, continuous/off-lattice behavior, genuine magnifier, overview/local microscope, manual calculator, positive/negative zero error, calibration explanation, targeted feedback, records, and CSV export. All fixed examples and exhaustive scale tests pass.
+
+Milestone 4 — Learning world. Complete anatomy, accurate labels, explosion/reassembly, sourced history, discovery workshop, all learning modes, teacher tools, local progress, responsive routes, and accessible task alternatives.
+
+Milestone 5 — Release evidence. Finish sound, sakura/art polish, full offline package and updates, real-device profiling, quality adaptation, regression review, accessibility task testing, deployment verification, and the student-pilot protocol/results where available.
+
+A milestone is complete only when its implemented behaviors and relevant automated checks pass and its required visual evidence is reviewed. Human or hardware validation that cannot be performed must be listed separately as pending. Never turn an unexecuted test into a pass. Never show a decorative control as a working feature. If blocked, finish independent work and identify the smallest concrete missing dependency.
+
+Deliver complete modular source, lockfile, locally bundled runtime assets, asset-generation sources, license/source inventory, production dist, operational README, exact setup/build/test/static-hosting/subpath/offline instructions, architecture/metrology notes, independent measurement tests, deterministic sample scenarios, a coverage matrix mapping every required feature to implementation and evidence, and a measured validation report with explicit Not Measured/Not Validated entries.
+
+The handover must make it possible to distinguish implemented, automatically tested, visually reviewed, real-device measured, and human-validated functionality. Do not substitute aspirational prose, test counts, promotional screenshots, or perfect scores for this evidence.
+
+Begin with the mechanical coordinate contract, signed scale model, and their independent tests. Then build the first complete instrument-to-contact-to-reading-to-feedback experience. Continue through all milestones and deliver the complete functioning product.
+
+REFERENCE STARTING POINTS — VERIFY AGAINST THE INSTALLED VERSIONS
+
+- Three.js WebGPURenderer guide: https://threejs.org/manual/pages/webgpurenderer
+- Three.js MeshStandardMaterial: https://threejs.org/docs/pages/MeshStandardMaterial.html
+- React Three Fiber performance guidance: https://r3f.docs.pmnd.rs/advanced/pitfalls
+- MDN WebGPU API: https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API
+- MDN Service Worker API: https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API
+- Mitutoyo caliper reference, especially printed pages D-34 and D-35: https://www.mitutoyo.com/webfoo/wp-content/uploads/D_section.pdf
+- Mitutoyo quick guide and caliper technique: https://www2.mitutoyo.co.jp/eng/products/menu/quick_guide.pdf
+- International Vocabulary of Metrology, calibration: https://jcgm.bipm.org/vim/en/2.39.html
+- Historical account of Vernier and Nunes, International Hydrographic Review: https://journals.lib.unb.ca/index.php/ihr/article/download/28565/1882521320/1882521568
+- INP definition and measurement scope: https://web.dev/articles/inp
+- WCAG dragging alternatives: https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements
+- WCAG target size: https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html
+- WCAG text contrast: https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html
